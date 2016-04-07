@@ -20,7 +20,7 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "Blackcat\\": "app/"
         }
     },
     "autoload-dev": {
