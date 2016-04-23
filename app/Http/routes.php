@@ -45,3 +45,10 @@ Route::get('/signin',[
 Route::post('/signin',[
     'uses'=>'\Blackcat\Http\Controllers\AuthController@postSignin',
 ]);
+
+
+//sign out(log out)
+Route::get('/signout',[
+    'uses'=>'\Blackcat\Http\Controllers\AuthController@getSignout',
+    'as'=>'auth.signout',
+]);
