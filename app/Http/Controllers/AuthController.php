@@ -48,6 +48,6 @@ class AuthController extends Controller{
                           $request->has('remember'))){
             return redirect()->back()->with('info','Could not sign you in with those details.');
         }
-        return redirect()->route()->with('info','You are now sign in');
+        return redirect()->route('home')->with('info','You are now sign in');
     }
 }
