@@ -8,6 +8,7 @@
 namespace Blackcat\Http\Controllers;
 use Illuminate\Http\Request;
 use Blackcat\Models\User;
+use Auth;
 
 
 class AuthController extends Controller{
@@ -42,6 +43,11 @@ class AuthController extends Controller{
            'email'=>'required',
            'password'=>'required',
         ]);
-        dd('all ok');
+//        for authentication
+        if(!Auth::attempt($request->only(['email','password']),
+                          $request->has('remember'))){
+            return redirect()->back()->with('info','Could not sign you in with those details.');
+        }
+        return redirect()->route()->with('info','You are now sign in');
     }
 }

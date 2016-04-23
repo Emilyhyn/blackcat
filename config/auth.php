@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Blackcat\User::class,
+            'model' => Blackcat\Models\User::class,
         ],
 
         // 'users' => [
