@@ -22,3 +22,26 @@ Route::get('/',[
 Route::get('/alert',function(){
     return redirect() -> route('home') -> with('info','You have signed up!');
 });
+
+/**
+ * Authentication
+ */
+//sign up(register)
+Route::get('/signup',[
+    'uses'=>'\Blackcat\Http\Controllers\AuthController@getSignup',
+    'as'=>'auth.signup',
+]);
+
+Route::post('/signup',[
+    'uses'=>'\Blackcat\Http\Controllers\AuthController@postSignup',
+]);
+
+//sign in(login)
+Route::get('/signin',[
+    'uses'=>'\Blackcat\Http\Controllers\AuthController@getSignin',
+    'as'=>'auth.signin',
+]);
+
+Route::post('/signin',[
+    'uses'=>'\Blackcat\Http\Controllers\AuthController@postSignin',
+]);
