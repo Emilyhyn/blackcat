@@ -55,5 +55,11 @@ Route::post('/signin',[
 Route::get('/signout',[
     'uses'=>'\Blackcat\Http\Controllers\AuthController@getSignout',
     'as'=>'auth.signout',
-    'middleware'=>['guest'],
+]);
+/**
+ * Search
+ */
+Route::get('/search',[
+    'uses'=>'\Blackcat\Http\Controllers\SearchController@getResults',
+    'as' =>'search.results',
 ]);
