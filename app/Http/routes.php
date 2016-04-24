@@ -30,20 +30,24 @@ Route::get('/alert',function(){
 Route::get('/signup',[
     'uses'=>'\Blackcat\Http\Controllers\AuthController@getSignup',
     'as'=>'auth.signup',
+    'middleware'=>['guest'],
 ]);
 
 Route::post('/signup',[
     'uses'=>'\Blackcat\Http\Controllers\AuthController@postSignup',
+    'middleware'=>['guest'],
 ]);
 
 //sign in(login)
 Route::get('/signin',[
     'uses'=>'\Blackcat\Http\Controllers\AuthController@getSignin',
     'as'=>'auth.signin',
+    'middleware'=>['guest'],
 ]);
 
 Route::post('/signin',[
     'uses'=>'\Blackcat\Http\Controllers\AuthController@postSignin',
+    'middleware'=>['guest'],
 ]);
 
 
@@ -51,4 +55,5 @@ Route::post('/signin',[
 Route::get('/signout',[
     'uses'=>'\Blackcat\Http\Controllers\AuthController@getSignout',
     'as'=>'auth.signout',
+    'middleware'=>['guest'],
 ]);
