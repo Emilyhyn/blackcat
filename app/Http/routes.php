@@ -63,3 +63,10 @@ Route::get('/search',[
     'uses'=>'\Blackcat\Http\Controllers\SearchController@getResults',
     'as' =>'search.results',
 ]);
+/*
+ * User profile
+ */
+Route::get('/user/{username}',[
+    'uses'=>'\Blackcat\Http\Controllers\ProfileController@getProfile',
+    'as' =>'profile.index',
+]);
