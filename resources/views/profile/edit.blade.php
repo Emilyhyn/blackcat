@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <form class="form-vertical" role="form" method="post" action="#">
+            <form class="form-vertical" role="form" method="post" action="{{route('profile.edit')}}">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -27,6 +27,7 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">Update</button>
                 </div>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
             </form>
         </div>
     </div>
