@@ -5,12 +5,9 @@
  * Date: 28/04/2016
  * Time: 2:42 PM
  */
-
   namespace Blackcat\Http\Controllers;
-
   use Blackcat\Models\User;
   use Illuminate\Http\Request;
-
 
   class ProfileController extends Controller{
       public function getProfile( $username){
@@ -25,4 +22,13 @@
               ->with('user',$user);
       }
 
+      public function getEdit(){
+          return view('profile.edit');
+      }
+
+      public function postEdit(){
+
+      }
   }
+
+

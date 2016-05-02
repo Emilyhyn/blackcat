@@ -70,3 +70,13 @@ Route::get('/user/{username}',[
     'uses'=>'\Blackcat\Http\Controllers\ProfileController@getProfile',
     'as' =>'profile.index',
 ]);
+Route::get('/profile/edit',[
+    'uses'=>'\Blackcat\Http\Controllers\ProfileController@getEdit',
+    'as' =>'profile.edit',
+    'middleware'=>['auth'],
+]);
+
+Route::post('/profile/edit',[
+    'uses'=>'\Blackcat\Http\Controllers\ProfileController@postEdit',
+    'middleware'=>['auth'],
+]);
