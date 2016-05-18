@@ -32,6 +32,10 @@
                  ->with('info','That user could not be found');
          }
 
+//          prevend from adding itself
+         if(Auth::user()->id === $user->id){
+              return redirect()->route('home');
+          }
          if(Auth::user()->hasFriendRequestPending($user) || $user->hasFriendRequestPending(Auth::user()))
              return redirect()
                  ->route('profile.index',['username'=>$user->username])
