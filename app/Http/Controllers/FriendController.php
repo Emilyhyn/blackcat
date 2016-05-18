@@ -31,6 +31,17 @@
                  ->route('home')
                  ->with('info','That user could not be found');
          }
+
+         if(Auth::user()->hasFriendRequestPending($user) || $user->hasFriendRequestPending(Auth::user()))
+             return redirect()
+                 ->route('profile.index',['username'=>$user->username])
+                 ->with('info','Friend request already pending.');
+
+         if (Auth::user()->isFriendsWith($user)){
+             return redirect()
+                 ->route('profile.index',['username'=>$user->username])
+                 ->with('info','You are already friends.');
+         }
       }
 
   }
