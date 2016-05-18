@@ -49,6 +49,24 @@
              ->with('info','Friend request sent.');
       }
 
+      public function getAccept($username){
+          $user=User::where('username',$username)->first();
+          if(!$user){
+              return redirect()
+                  ->route('home')
+                  ->with('info','That user could not be found');
+          }
+
+          if(!Auth::user()->hasFriendRequestReceived($user)){
+              return redirect()->route('home');
+          }
+          Auth::user()->acceptFriendRequest($user);
+
+          return redirect()
+              ->route('profile.index',['username'=>$username])
+              ->with('info','Friend request accepted.');
+      }
+
   }
 
 
