@@ -42,6 +42,11 @@
                  ->route('profile.index',['username'=>$user->username])
                  ->with('info','You are already friends.');
          }
+         Auth::user()->addFriend($user);
+
+         return redirect()
+             ->route('profile.index',['username'=>$username])
+             ->with('info','Friend request sent.');
       }
 
   }
